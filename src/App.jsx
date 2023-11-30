@@ -1,57 +1,72 @@
-import { Login } from "@mui/icons-material";
-import tarjetaResUsuR from "./components/tarjetaResUsuR";
+import {
+  Box,
+  Container,
+  Typography,
+  AppBar,
+  Toolbar,
+  Button,
+  IconButton,
+} from "@mui/material";
+import * as React from "react";
 
-import { Box, Container, Typography } from "@mui/material";
-import Button from "@mui/material/Button";
-
-import React from "react";
 import "./App.css";
+import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
+
+//componentes
 import Signup from "./components/signup";
+import Login from "./components/login";
+
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home";
+import RemplazoSignUp from "./pages/RemplazoSignUp";
+
+// import { Routes } from "react-router-dom";
+
+const navArrayLinks = [
+  {
+    title: "Home",
+    path: "/home",
+  },
+  {
+    title: "Log in",
+    path: "/Login",
+  },
+  {
+    title: "Sign up",
+    path: "/SignUp",
+  },
+];
 
 function App() {
+  const [showSignup, setShowSignup] = React.useState(true);
   return (
-    // <Container>
-    //   <h1>App</h1>
-    //   <Typography
-    //     variant="h1"
-    //     gutterBottom
-    //   >
-    //     App h1 con componente
-    //   </Typography>
-    //   <Button variant="contained">Prueba boton</Button>
-
-    //   <Button
-    //     variant="contained"
-    //     color="secondary"
-    //   >
-    //     boton
-    //   </Button>
-    //   <Button
-    //     variant="contained"
-    //     color="error"
-    //   >
-    //     boton error
-    //   </Button>
-
-    //   <Box
-    //     sx={{
-    //       border: 2,
-    //       p: 5,
-    //       margin: 2,
-    //       bgcolor: "primary",
-    //       borderColor: "peru",
-    //     }}
-    //     component="span"
-    //   >
-    //     fldaspdc
-    //   </Box>
-    //   <tarjetaResUsuR />
-    // </Container>
-
-    <div className="App">
-      {/* <Login /> */}
-      <Signup />
-    </div>
+    <>
+      <Navbar
+        navArrayLinks={navArrayLinks}
+        sx={{
+          posittion: "fixed",
+          top: 0,
+          right: 0,
+          bottom: 0,
+        }}
+      />
+      <Container sx={{ mt: 5 }}>
+        <Routes>
+          <Route
+            path="/home"
+            element={<Home />}
+          />
+          <Route
+            path="/Login"
+            element={<Login />}
+          />
+          <Route
+            path="/SignUp"
+            element={<Signup />}
+          />
+        </Routes>
+      </Container>
+    </>
   );
 }
 

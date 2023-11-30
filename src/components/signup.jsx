@@ -9,23 +9,51 @@ import {
   RadioGroup,
   TextField,
   Typography,
+  Button,
+  InputLabel,
+  MenuItem,
+  Box,
 } from "@mui/material";
+
+import Select from "@mui/material/Select";
+
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import React from "react";
+import Login from "./login";
+import { Navigate } from "react-router-dom";
+
+function LoginLayout() {
+  const routeChange = () => {
+    let path = `/login.jsx`;
+    Navigate(path);
+  };
+  return (
+    <Button
+      type="submit"
+      variant="contained"
+      sx={{ mt: "20px" }}
+      color="tercero"
+      onClick={routeChange}
+    >
+      Sign up
+    </Button>
+  );
+}
 
 const Signup = () => {
   return (
     <Grid>
       <Paper
         elevation={20}
-        sx={{ p: "30px 20px ", with: 300, margin: "20px 20px" }}
+        sx={{
+          p: "30px 20px ",
+          with: 300,
+          margin: "20px 20px",
+          borderRadius: "10px",
+        }}
       >
-        <Grid
-          sx={{ align: "center" }}
-          alignContent={"center"}
-        >
-          {/* revisar el align del avatar por que no jala?? */}
-          <Avatar sx={{ bgcolor: "#FF9B50", align: "center" }}>
+        <Grid sx={{ align: "center" }}>
+          <Avatar sx={{ bgcolor: "#FF9B50", margin: "0% 0% 0% 45%" }}>
             <AddCircleIcon />
           </Avatar>
           <h2 sx={{ margin: 0 }}>Sign Up</h2>
@@ -40,21 +68,23 @@ const Signup = () => {
             fullWidth
             label="Nombre"
             placeholder="Ingrese su(s) nombre(s)"
+            sx={{ mt: "20px" }}
           />
           <TextField
             fullWidth
             label="Apellido Paterno"
+            sx={{ mt: "20px" }}
           />
           <TextField
             fullWidth
             label="Apellido Materno"
+            sx={{ mt: "20px" }}
           />
-
           <TextField
             fullWidth
             label="Correo electronico"
+            sx={{ mt: "20px" }}
           />
-          {/* <FormControl> */}
           <FormLabel
             id="demo-radio-buttons-group-label"
             sx={{
@@ -84,18 +114,42 @@ const Signup = () => {
               label="Otro"
             />
           </RadioGroup>
-          {/* </FormControl> */}
-          {/* Año de nacimiento */}
-          {/* Area  */}
-
+          {/* Area 
+          <InputLabel id="demo-simple-select-label">Area habitual</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            // value={area}
+            label="Area"
+            onChange={handleChange}
+          >
+            <MenuItem value={1}>Area limitrofe </MenuItem>
+            <MenuItem value={2}>Centro</MenuItem>
+            <MenuItem value={3}>Nor-Oriente</MenuItem>
+            <MenuItem value={4}>Norte</MenuItem>
+            <MenuItem value={5}>Oriente</MenuItem>
+            <MenuItem value={6}>Poniente</MenuItem>
+            <MenuItem value={3}>Sur</MenuItem>
+          </Select> */}
           <TextField
             fullWidth
             label="Contraseña"
+            sx={{ mt: "20px" }}
           />
           <TextField
             fullWidth
             label="confirmar contraseña"
+            sx={{ mt: "20px" }}
           />
+
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ mt: "20px" }}
+            color="tercero"
+          >
+            Sign up
+          </Button>
         </FormControl>
       </Paper>
     </Grid>

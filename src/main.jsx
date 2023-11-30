@@ -19,23 +19,24 @@ const theme = createTheme({
     secondary: {
       main: "#FF9B50",
     },
-    // success: {
-    //   main: green[500],
-    //   main: green[800], // green[400] in "dark" mode
-
-    //   light: green[300],
-    //   light: green[500], // green[300] in "dark" mode
-
-    //   dark: green[700],
-    //   dark: green[900], // green[700] in "dark" mode
-    // },
+    tercero: {
+      main: "#E25E3E",
+    },
+    cuarto: {
+      main: "#C63D2F",
+    },
   },
 });
+
+import { BrowserRouter } from "react-router-dom";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
+      <BrowserRouter>
+        <CssBaseline />
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );
