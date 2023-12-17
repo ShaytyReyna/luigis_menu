@@ -1,3 +1,5 @@
+import UsuPerfilTop from "../components/UsuPerfilTop";
+
 export default function Home() {
   return (
     <>

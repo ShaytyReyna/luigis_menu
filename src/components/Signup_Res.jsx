@@ -1,5 +1,7 @@
 import {
   Avatar,
+  Box,
+  Chip,
   FormControlLabel,
   FormControl,
   FormLabel,
@@ -16,16 +18,63 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+/*import para el select */
 import Select from "@mui/material/Select";
-
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 import React, { useState } from "react";
 
-const Signup = () => {
-  // const [open, setOpen] = useState(false); //false = no mostrarlo || true = mostrar
+/*Constantes para el Select*/
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
+
+const names = [
+  "Tradicional Mexicana",
+  "Italiana",
+  "Japonesa",
+  "Bar-Restaurante",
+  "Taqueria",
+  "Comida corrida",
+  "Variado",
+];
+
+/*funciones para el Select*/
+function getStyles(name, personName, theme) {
+  return {
+    fontWeight:
+      personName.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
+
+function Signup_Res() {
+  const theme = useTheme();
+  const [personName, setPersonName] = React.useState([]);
+
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setPersonName(
+      // On autofill we get a stringified value.
+      typeof value === "string" ? value.split(",") : value
+    );
+  };
+
+  const [open, setOpen] = useState(false); //false = no mostrarlo || true = mostrar
 
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -41,8 +90,8 @@ const Signup = () => {
         elevation={20}
         sx={{
           p: "30px 20px ",
-          with: 300,
           margin: "20px 20px",
+          mt: "5%",
           borderRadius: "10px",
         }}
       >
@@ -56,6 +105,7 @@ const Signup = () => {
             }}
           ></Avatar>
           <h2 sx={{ margin: 0 }}>Sign Up</h2>
+          <h3 sx={{ margin: 0 }}>Restaurante</h3>
           <Typography variant="body1">
             {" "}
             Por favor llena este formulario para poder crear una cuenta
@@ -65,121 +115,13 @@ const Signup = () => {
         <FormControl sx={{ mt: 5 }}>
           <TextField
             fullWidth
-            label="Nombre"
+            label="Correo Electronico"
             placeholder="Ingrese su(s) nombre(s)"
             sx={{ mt: "20px" }}
           />
-          <TextField
-            fullWidth
-            label="Apellido Paterno"
-            sx={{ mt: "20px" }}
-          />
-          <TextField
-            fullWidth
-            label="Apellido Materno"
-            sx={{ mt: "20px" }}
-          />
-          <TextField
-            fullWidth
-            label="Correo electronico"
-            sx={{ mt: "20px" }}
-          />
-          <FormLabel
-            id="demo-radio-buttons-group-label"
-            sx={{
-              mt: 2,
-            }}
-          >
-            Genero
-          </FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
-            name="radio-buttons-group"
-          >
-            <FormControlLabel
-              value="femenino"
-              control={<Radio />}
-              label="Femenino"
-            />
-            <FormControlLabel
-              value="masculino"
-              control={<Radio />}
-              label="Masculino"
-            />
-            <FormControlLabel
-              value="otro"
-              control={<Radio />}
-              label="Otro"
-            />
-          </RadioGroup>
-
-          {/* Area  */}
-          <Typography
-            sx={{
-              mt: 2,
-              p: 2,
-            }}
-            variant="body2"
-          >
-            Introduzca el área en la que se ubica habitualmente:
-          </Typography>
-          <FormControl sx={{ m: 1 }}>
-            <InputLabel id="select-area-label"> Área habitual</InputLabel>
-            <Select
-              labelId="select-area-label"
-              id="area-select"
-              label="Área habitual"
-              defaultValue=""
-            >
-              <MenuItem
-                value={1}
-                key={1}
-              >
-                Area limitrofe{" "}
-              </MenuItem>
-              <MenuItem
-                value={2}
-                key={2}
-              >
-                Centro
-              </MenuItem>
-              <MenuItem
-                value={3}
-                key={3}
-              >
-                Nor-Oriente
-              </MenuItem>
-              <MenuItem
-                value={4}
-                key={4}
-              >
-                Norte
-              </MenuItem>
-              <MenuItem
-                value={5}
-                key={5}
-              >
-                Oriente
-              </MenuItem>
-              <MenuItem
-                value={6}
-                key={6}
-              >
-                Poniente
-              </MenuItem>
-              <MenuItem
-                value={7}
-                key={7}
-              >
-                Sur
-              </MenuItem>
-            </Select>
-          </FormControl>
-
           <FormControl
             variant="outlined"
-            sx={{ m: 1 }}
+            sx={{ mt: 2 }}
           >
             <InputLabel>Contraseña</InputLabel>
             <OutlinedInput
@@ -203,7 +145,7 @@ const Signup = () => {
 
           <FormControl
             variant="outlined"
-            sx={{ m: 1 }}
+            sx={{ mt: 2 }}
           >
             <InputLabel>Confirmar contraseña</InputLabel>
             <OutlinedInput
@@ -224,6 +166,61 @@ const Signup = () => {
               }
             />
           </FormControl>
+          <TextField
+            fullWidth
+            label="Nombre del Restaurante"
+            sx={{ mt: "20px" }}
+          />
+
+          {/* Area  */}
+          <Typography
+            sx={{
+              mt: 2,
+              p: 2,
+            }}
+            variant="body2"
+          >
+            Introduzca el tipo de comida que ofrece:
+          </Typography>
+          <FormControl sx={{ m: 1, width: 300 }}>
+            <InputLabel id="demo-multiple-chip-label">
+              Tipo de Comida
+            </InputLabel>
+            <Select
+              labelId="demo-multiple-chip-label"
+              id="demo-multiple-chip"
+              multiple
+              value={personName}
+              onChange={handleChange}
+              input={
+                <OutlinedInput
+                  id="select-multiple-chip"
+                  label="Tipo de Comida"
+                />
+              }
+              renderValue={(selected) => (
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                  {selected.map((value) => (
+                    <Chip
+                      key={value}
+                      label={value}
+                    />
+                  ))}
+                </Box>
+              )}
+              MenuProps={MenuProps}
+            >
+              {names.map((name) => (
+                <MenuItem
+                  key={name}
+                  value={name}
+                  style={getStyles(name, personName, theme)}
+                >
+                  {name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
           <Button
             type="submit"
@@ -239,6 +236,6 @@ const Signup = () => {
       </Paper>
     </Grid>
   );
-};
+}
 
-export default Signup;
+export default Signup_Res;
