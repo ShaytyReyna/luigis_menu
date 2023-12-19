@@ -7,12 +7,16 @@ export default function SignUpU() {
     // backgroundImage: "url(/public/waves0.png)",
     // backgroundSize: "cover",
     // backgroundRepeat: "no-repeat",
-    // height: "100vh",
-    // w: 100,
+    //height: "100vh",
+    width: "100%",
   };
 
   return (
-    <div style={estilo}>
+    <div
+      style={estilo}
+      position="static"
+      maxWidth="x1"
+    >
       <SignUp />
     </div>
   );

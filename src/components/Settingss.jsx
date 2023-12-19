@@ -12,6 +12,12 @@ import StarBorder from "@mui/icons-material/StarBorder";
 import Home from "../pages/Home";
 import { Drawer } from "@mui/material";
 
+const divStyle = {
+  position: "absolute",
+  width: "100%",
+  backgorundcolor: "blue",
+};
+
 export default function NestedList() {
   const [open, setOpen] = React.useState(true);
 
@@ -19,10 +25,8 @@ export default function NestedList() {
     setOpen(!open);
   };
 
-  //   const [openHome, setOpenHome] = () => useState(false);
-
   return (
-    <div>
+    <div style={divStyle}>
       <List
         sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
         component="nav"

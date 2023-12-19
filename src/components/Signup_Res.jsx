@@ -21,7 +21,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 /*import para el select */
 import Select from "@mui/material/Select";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
@@ -62,6 +62,18 @@ function getStyles(name, personName, theme) {
 
 function Signup_Res() {
   const theme = useTheme();
+  const paperStyle = {
+    width: 400,
+    margin: "100px auto",
+    borderRadius: "10px",
+    padding: "50px auto",
+  };
+  const avatarStyle = {
+    backgroundColor: "#FF9B50",
+    margin: "10px auto 0px auto",
+    width: "60px",
+    height: "60px",
+  };
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
@@ -85,25 +97,15 @@ function Signup_Res() {
   };
 
   return (
-    <Grid>
+    <Grid style={{ marginBottom: "50px" }}>
       <Paper
         elevation={20}
-        sx={{
-          p: "30px 20px ",
-          margin: "20px 20px",
-          mt: "5%",
-          borderRadius: "10px",
-        }}
+        style={paperStyle}
       >
-        <Grid sx={{ align: "center" }}>
-          <Avatar
-            sx={{
-              bgcolor: "#FF9B50",
-              margin: "0% 0% 0% 42%",
-              width: "75px",
-              height: "75px",
-            }}
-          ></Avatar>
+        <Grid sx={{ align: "center", pt: "5px" }}>
+          <Avatar style={avatarStyle}>
+            <RestaurantMenuIcon style={{ fontSize: "45px" }} />
+          </Avatar>
           <h2 sx={{ margin: 0 }}>Sign Up</h2>
           <h3 sx={{ margin: 0 }}>Restaurante</h3>
           <Typography variant="body1">
@@ -112,11 +114,11 @@ function Signup_Res() {
           </Typography>
         </Grid>
 
-        <FormControl sx={{ mt: 5 }}>
+        <FormControl sx={{ mt: 1 }}>
           <TextField
             fullWidth
             label="Correo Electronico"
-            placeholder="Ingrese su(s) nombre(s)"
+            placeholder="Ingrese correo electronico de contacto"
             sx={{ mt: "20px" }}
           />
           <FormControl
@@ -169,6 +171,7 @@ function Signup_Res() {
           <TextField
             fullWidth
             label="Nombre del Restaurante"
+            placeholder="Ingrese el nombre de su restaurante"
             sx={{ mt: "20px" }}
           />
 
@@ -225,10 +228,16 @@ function Signup_Res() {
           <Button
             type="submit"
             variant="contained"
-            sx={{ mt: "20px" }}
+            sx={{
+              margin: "20px 0px",
+              color: "white",
+              "&:hover": {
+                color: "#FFE569", // Cambia al color deseado al pasar el mouse
+              },
+            }}
             color="tercero"
             component="a"
-            href="/home"
+            href="/"
           >
             Sign up
           </Button>

@@ -12,32 +12,43 @@ import Login from "./components/login";
 
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
-import UsuAjeno from "./pages/UsuAjeno";
+import UsuPerfil from "./pages/PerfilU";
 import SignupU from "./pages/SignUpU";
 
 const navArrayLinks = [
   {
     title: "Home",
-    path: "/home",
+    path: "/",
   },
   {
     title: "Log in",
     path: "/Login",
   },
-  {
-    title: "Sign up",
-    path: "/SignUp",
-  },
-  {
-    title: "Perfil ajeno",
-    path: "/perfil",
-  },
-  {
-    title: "Restaurante",
-    path: "/SignUpRes",
-  },
+  // {
+  //   title: "Sign up",
+  //   path: "/SignUp",
+  // },
+  // {
+  //   title: "Perfil ajeno",
+  //   path: "/perfil",
+  // },
+  // {
+  //   title: "Restaurante",
+  //   path: "/SignUpRes",
+  // },
 ];
 
+const containerStyle = {
+  position: "absolute",
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+  width: "100%",
+  backgroundcolor: "black",
+  padding: 0,
+  margin: 0,
+};
 function App() {
   const [showSignup, setShowSignup] = React.useState(true);
   return (
@@ -45,7 +56,7 @@ function App() {
       <Navbar
         navArrayLinks={navArrayLinks}
         sx={{
-          posittion: "fixed",
+          posittion: "static",
           top: 0,
           right: 0,
           bottom: 0,
@@ -53,21 +64,12 @@ function App() {
       />
 
       <Container
-        sx={{
-          mt: 5,
-          width: "100%",
-          top: 0,
-          right: 0,
-          bottom: 0,
-          // backgroundImage: "url(/public/waves0.png)",
-          // backgroundSize: "cover",
-          // backgroundRepeat: "no-repeat",
-          // height: "100vh",
-        }}
+        style={containerStyle}
+        maxWidth="x1"
       >
         <Routes>
           <Route
-            path="/home"
+            path="/"
             element={<Home />}
           />
           <Route
@@ -82,7 +84,7 @@ function App() {
           {/* Provicional en lo que averiguo como hacer dinamico los elementos de la pagina de usuarios */}
           <Route
             path="/perfil"
-            element={<UsuAjeno />}
+            element={<UsuPerfil />}
           />
           <Route
             path="/SignUpRes"
