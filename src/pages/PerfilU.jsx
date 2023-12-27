@@ -6,6 +6,7 @@ import {
   TableBody,
   Container,
   Grid,
+  Paper,
 } from "@mui/material";
 import React from "react";
 import UsuPerfilTop from "../components/UsuPerfilTop";
@@ -16,6 +17,16 @@ const BoxStyle = {
   width: "100%",
   height: "100vh",
 };
+
+const paperStyle = {
+  borderRadius: "10px",
+  margin: "10px 25px auto 25px",
+  flexGrow: 1,
+  padding: "50px auto",
+
+  borderRadius: "10px",
+};
+
 export default function PerfilU() {
   return (
     <Box style={BoxStyle}>
@@ -28,39 +39,52 @@ export default function PerfilU() {
           marginBottom: "10px",
         }}
       />
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        spacing={2}
-        style={{
-          bordercolor: "black",
-          borderWidth: "thick",
-          borderStyle: "solid",
-          margin: 5,
-        }}
+      <Paper
+        style={paperStyle}
+        elevation={6}
       >
         <Grid
-          item
-          xs
-          // md={4}
-          style={{ border: "3px solid red", margin: 5 }}
+          container
+          spacing={2}
+          direction={"row"}
+          alignItems="flex-start"
+          style={{
+            backgroundColor: "secondary",
+            width: "100%",
+            margin: "5px",
+            padding: "5px",
+          }}
         >
-          <Settings0
+          <Grid
+            item
+            xs={12}
+            sm={4}
             style={{
-              margin: 2,
-              mt: "10px",
-              posittion: "static",
+              padding: "5px",
+              border: "3px solid red",
+              marginRight: "5px",
             }}
-          />
+          >
+            <Settings0
+              style={{
+                margin: 2,
+                mt: "10px",
+                posittion: "static",
+              }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={7}
+            style={{
+              padding: "5px",
+              border: "3px solid blue",
+              marginRight: "5px",
+            }}
+          ></Grid>
         </Grid>
-        <Grid
-          item
-          xs={7}
-          // md={8}
-          style={{ border: "3px solid blue", margin: 2 }}
-        ></Grid>
-      </Grid>
+      </Paper>
     </Box>
   );
 }

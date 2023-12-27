@@ -1,198 +1,196 @@
 import {
   Grid,
-  Stack,
-  ButtonBase,
   Typography,
   Paper,
   Avatar,
-  TableRow,
-  TableCell,
-  Table,
-  TableBody,
+  IconButton,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import React from "react";
-import { blue } from "@mui/material/colors";
+
+const avatarStyle = {
+  margin: "auto",
+  width: "20vw",
+  height: "20vw",
+
+  maxWidth: "190px",
+  maxHeight: "190px",
+
+  minWidth: "60px",
+  minHeight: "60px",
+};
+
+// const responsiveFontSize = (baseFontSize) => {
+//   return {
+//     fontSize: baseFontSize,
+//     // "@media (width: 600px)": {
+//     //   fontSize: `${baseFontSize * 0.8}`, // Ajusta el tamaño de la fuente para pantallas más pequeñas
+//     // },
+//     "@media (max-width: 600px)": {
+//       fontSize: `${baseFontSize * 0.7}`, // Ajusta el tamaño de la fuente para pantallas más pequeñas
+//     },
+//     "@media (min-width: 1200px)": {
+//       fontSize: `${baseFontSize * 2.5}`, // Ajusta el tamaño de la fuente para pantallas grandes
+//     },
+//   };
+// };
 
 export default function UsuPerfilTop() {
-  const Img = styled("img")({
-    margin: "auto",
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%",
-  });
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const [isFavorite, setIsFavorite] = React.useState(false);
+
+  const handleIconClick = () => {
+    setIsFavorite((prev) => !prev);
+  };
   return (
     <Paper
-      sx={{
-        p: 2,
-        margin: "auto",
-        maxWidth: 500,
+      elevation={6}
+      style={{
+        borderRadius: "10px",
+        margin: "100px 25px auto 25px",
         flexGrow: 1,
-        backgroundColor: "secondary",
-        p: 16,
+        padding: "50px auto",
         w: "100%",
+        // maxWidth: 500,
       }}
     >
-      {/* <Grid
+      <Grid
         container
         spacing={2}
         direction="row"
-        justifyContent="space-around"
         alignItems="flex-start"
-        // display="flex"
-        sx={{ backgroundColor: "secondary", width: "100%" }}
+        style={{
+          backgroundColor: "secondary",
+          width: "100%",
+          margin: "5px",
+          padding: "5px",
+        }}
       >
-        <Grid item>
+        <Grid
+          item
+          xs={12}
+          sm={3}
+          style={{ padding: "5px" }}
+        >
           <Avatar
             src="/public/Prueba0.jpg"
-            sx={{ w: 300, height: "auto" }}
+            style={avatarStyle}
           ></Avatar>
-          {/* <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img
-              alt="complex"
-              src="/public/Prueba0.jpg"
-            />
-          </ButtonBase> */}
-      {/* </Grid>
+        </Grid>
 
         <Grid
           item
           xs={12}
-          sm
+          sm={8}
           container
           direction="column"
           spacing={2}
+          style={{ padding: "5px" }}
         >
           <Grid
             item
             xs
-            container
-            direction="column"
-            spacing={2}
+            style={{
+              margin: "auto 0px",
+              padding: "10px",
+            }}
           >
+            <Typography
+              gutterBottom
+              variant="subtitle1"
+              component="div"
+              // style={{
+              //   // ...responsiveFontSize(20),
+              // }}
+              sx={{
+                margin: "20px 10px 0px 0px",
+                fontSize: { xs: "1.5rem", sm: "2rem" },
+              }}
+            >
+              Nombre de usuario
+            </Typography>
             <Grid
               item
               xs
+              container
+              spacing={2}
+              style={{ marginTop: "0.5rem" }}
             >
-              <Typography
-                gutterBottom
-                variant="subtitle1"
-                component="div"
-              >
-                Nombre de usuario
-              </Typography>
               <Grid
                 item
                 xs
-                container
-                spacing={2}
+                style={{ padding: "16px" }}
               >
-                <Grid
-                  item
-                  xs
+                <Typography
+                  variant="body2"
+                  gutterBottom
+                  // style={responsiveFontSize(14)}
+                  sx={{ fontSize: { xs: "14px", sm: "16px" } }}
                 >
-                  <Typography
-                    variant="body2"
-                    gutterBottom
-                  >
-                    Seguidores
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                  >
-                    # de seguidores
-                  </Typography>
-                </Grid>
+                  Seguidores
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  // style={
+                  //   {
+                  //     // ...responsiveFontSize(12),
+                  //     // fontSize: "1vw" /* 4% del ancho de la pantalla */,
+                  //   }
+                  // }
+                  sx={{ fontSize: { xs: "12px", sm: "14px" } }}
+                >
+                  # de seguidores
+                </Typography>
+              </Grid>
 
-                <Grid
-                  item
-                  xs
+              <Grid
+                item
+                xs
+                style={{ padding: "16px" }}
+              >
+                <Typography
+                  variant="body2"
+                  gutterBottom
+                  // style={responsiveFontSize(14)}
+                  sx={{ fontSize: { xs: "14px", sm: "16px" } }}
                 >
-                  <Typography
-                    variant="body2"
-                    gutterBottom
-                  >
-                    Seguidos
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                  >
-                    # de seguidos
-                  </Typography>
-                </Grid>
+                  Seguidos
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  // style={responsiveFontSize(12)}
+                  sx={{ fontSize: { xs: "12px", sm: "14px" } }}
+                >
+                  # de seguidos
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
 
-        <Grid Item>
-          <FavoriteBorderIcon />
-        </Grid> */}
-      {/* </Grid> */}
-
-      <Table>
-        <TableBody>
-          <TableRow>
-            <TableCell rowSpan={3}>
-              <Avatar
-                src="/Prueba0.jpg"
-                sx={{ width: 100, height: 100 }}
-              />
-            </TableCell>
-
-            <TableCell colSpan={2}>
-              <Typography
-                gutterBottom
-                variant="subtitle1"
-                component="div"
-              >
-                Nombre de usuario
-              </Typography>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell colSpan={2}>
-              <Typography
-                variant="body2"
-                gutterBottom
-              >
-                Seguidores
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-              >
-                # de seguidores
-              </Typography>
-            </TableCell>
-          </TableRow>
-
-          <TableRow>
-            <TableCell>
-              <Typography
-                variant="body2"
-                gutterBottom
-              >
-                Seguidos
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-              >
-                # de seguidos
-              </Typography>
-            </TableCell>
-
-            <TableCell>
-              <FavoriteBorderIcon />
-            </TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
+        <Grid
+          item
+          xs={12}
+          sm={1}
+          style={{ margin: "auto", padding: "5px" }}
+        >
+          <IconButton
+            onClick={handleIconClick}
+            color="primary"
+            sx={{ fontSize: { xs: "8rem", sm: "12rem" } }}
+          >
+            {isFavorite ? <FavoriteRoundedIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+        </Grid>
+      </Grid>
     </Paper>
   );
 }

@@ -6,10 +6,9 @@ import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
 
 //componentes
 import Signup from "./components/signup";
+
 import Signup_Res from "./components/Signup_Res";
-
 import Login from "./components/login";
-
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import UsuPerfil from "./pages/PerfilU";
@@ -24,18 +23,6 @@ const navArrayLinks = [
     title: "Log in",
     path: "/Login",
   },
-  // {
-  //   title: "Sign up",
-  //   path: "/SignUp",
-  // },
-  // {
-  //   title: "Perfil ajeno",
-  //   path: "/perfil",
-  // },
-  // {
-  //   title: "Restaurante",
-  //   path: "/SignUpRes",
-  // },
 ];
 
 const containerStyle = {

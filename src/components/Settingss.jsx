@@ -13,17 +13,22 @@ import Home from "../pages/Home";
 import { Drawer } from "@mui/material";
 
 const divStyle = {
-  position: "absolute",
+  // position: "static",
   width: "100%",
   backgorundcolor: "blue",
 };
 
 export default function NestedList() {
+  // export default function NestedList({ handleOptionClick }) {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
     setOpen(!open);
   };
+  // const handleItemClick = (option) => {
+  //   setOpen(false);
+  //   handleOptionClick(option);
+  // };
 
   return (
     <div style={divStyle}>
