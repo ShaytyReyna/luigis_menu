@@ -12,19 +12,52 @@ import StarBorder from "@mui/icons-material/StarBorder";
 import Home from "../pages/Home";
 import { Drawer } from "@mui/material";
 
+import RestaurantesGuardados from "./RestaurantesGuardados";
+import Privacidad from "./Privacidad";
+import EditarDatos from "./EditarDatos";
+import Preferencias from "./Preferencias";
+
 const divStyle = {
   // position: "static",
   width: "100%",
   backgorundcolor: "blue",
 };
 
-export default function NestedList() {
+export default function NestedList({ onComponentChange }) {
   // export default function NestedList({ handleOptionClick }) {
   const [open, setOpen] = React.useState(true);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   const handleClick = () => {
     setOpen(!open);
   };
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+
+    // Cambia el componente principal según la selección
+    switch (index) {
+      case 0:
+        onComponentChange(<RestaurantesGuardados />);
+        break;
+      case 1:
+        onComponentChange(<Privacidad />);
+        break;
+
+      case 2:
+        onComponentChange(<EditarDatos />);
+        break;
+
+      case 3:
+        onComponentChange(<Preferencias />);
+        break;
+
+      // Agregar los otros
+      default:
+        onComponentChange(null); //si no hay coincidencias
+    }
+  };
+
   // const handleItemClick = (option) => {
   //   setOpen(false);
   //   handleOptionClick(option);
@@ -61,34 +94,39 @@ export default function NestedList() {
           >
             <ListItemButton
               sx={{ pl: 4 }}
-              //   onClick={() => setOpenHome(true)}
+              selected={selectedIndex === 0}
+              onClick={(event) => handleListItemClick(event, 0)}
+              // href="/RestaurantesGuardados"
             >
               {" "}
               <ListItemText primary="Restaurantes guardados" />
+              {}
             </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton
+              sx={{ pl: 4 }}
+              selected={selectedIndex === 1}
+              onClick={(event) => handleListItemClick(event, 1)}
+            >
               <ListItemText primary="Privacidad y seguridad" />
             </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemText primary="Ayuda" />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
+
+            <ListItemButton
+              sx={{ pl: 4 }}
+              selected={selectedIndex === 2}
+              onClick={(event) => handleListItemClick(event, 2)}
+            >
               <ListItemText primary="Editar datos" />
             </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton
+              sx={{ pl: 4 }}
+              selected={selectedIndex === 3}
+              onClick={(event) => handleListItemClick(event, 3)}
+            >
               <ListItemText primary="Preferencias" />
             </ListItemButton>
           </List>
         </Collapse>
       </List>
-
-      <Drawer
-        // open={openHome} ///*el open toma true o false*/}
-        anchor="bottom"
-        // onClose={() => setOpenHome(false)}
-      >
-        <Home />
-      </Drawer>
     </div>
   );
 }

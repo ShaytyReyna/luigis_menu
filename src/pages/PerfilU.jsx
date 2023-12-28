@@ -11,7 +11,7 @@ import {
 import React from "react";
 import UsuPerfilTop from "../components/UsuPerfilTop";
 import Settings0 from "../components/Settingss";
-
+import { useState } from "react";
 const BoxStyle = {
   position: "absolute",
   width: "100%",
@@ -28,6 +28,12 @@ const paperStyle = {
 };
 
 export default function PerfilU() {
+  const [selectedComponent, setSelectedComponent] = useState(null);
+
+  const handleComponentChange = (component) => {
+    setSelectedComponent(component);
+  };
+
   return (
     <Box style={BoxStyle}>
       <UsuPerfilTop
@@ -69,8 +75,9 @@ export default function PerfilU() {
               style={{
                 margin: 2,
                 mt: "10px",
-                posittion: "static",
+                position: "static",
               }}
+              onComponentChange={handleComponentChange}
             />
           </Grid>
           <Grid
@@ -82,7 +89,9 @@ export default function PerfilU() {
               border: "3px solid blue",
               marginRight: "5px",
             }}
-          ></Grid>
+          >
+            {selectedComponent && selectedComponent}
+          </Grid>
         </Grid>
       </Paper>
     </Box>

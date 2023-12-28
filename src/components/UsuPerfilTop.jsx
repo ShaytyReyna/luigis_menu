@@ -24,21 +24,6 @@ const avatarStyle = {
   minHeight: "60px",
 };
 
-// const responsiveFontSize = (baseFontSize) => {
-//   return {
-//     fontSize: baseFontSize,
-//     // "@media (width: 600px)": {
-//     //   fontSize: `${baseFontSize * 0.8}`, // Ajusta el tamaño de la fuente para pantallas más pequeñas
-//     // },
-//     "@media (max-width: 600px)": {
-//       fontSize: `${baseFontSize * 0.7}`, // Ajusta el tamaño de la fuente para pantallas más pequeñas
-//     },
-//     "@media (min-width: 1200px)": {
-//       fontSize: `${baseFontSize * 2.5}`, // Ajusta el tamaño de la fuente para pantallas grandes
-//     },
-//   };
-// };
-
 export default function UsuPerfilTop() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -57,7 +42,6 @@ export default function UsuPerfilTop() {
         flexGrow: 1,
         padding: "50px auto",
         w: "100%",
-        // maxWidth: 500,
       }}
     >
       <Grid

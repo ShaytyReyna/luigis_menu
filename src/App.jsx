@@ -13,6 +13,7 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import UsuPerfil from "./pages/PerfilU";
 import SignupU from "./pages/SignUpU";
+import RestaurantesGuardados from "./components/RestaurantesGuardados";
 
 const navArrayLinks = [
   {
@@ -76,6 +77,10 @@ function App() {
           <Route
             path="/SignUpRes"
             element={<Signup_Res />}
+          />
+          <Route
+            path="/RestaurantesGuardados"
+            element={<RestaurantesGuardados />}
           />
         </Routes>
       </Container>
