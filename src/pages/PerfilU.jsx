@@ -1,16 +1,7 @@
-import {
-  Box,
-  TableRow,
-  TableCell,
-  Table,
-  TableBody,
-  Container,
-  Grid,
-  Paper,
-} from "@mui/material";
+import { Box, Grid, Paper } from "@mui/material";
 import React from "react";
-import UsuPerfilTop from "../components/UsuPerfilTop";
-import Settings0 from "../components/Settingss";
+import UsuPerfilTop from "../components/PerfilUsuario/UsuPerfilTop";
+import Settings0 from "../components/PerfilUsuario/Settingss";
 import { useState } from "react";
 const BoxStyle = {
   position: "absolute",
@@ -64,10 +55,10 @@ export default function PerfilU() {
           <Grid
             item
             xs={12}
-            sm={4}
+            sm
             style={{
               padding: "5px",
-              border: "3px solid red",
+              // border: "3px solid red",
               marginRight: "5px",
             }}
           >
@@ -83,10 +74,10 @@ export default function PerfilU() {
           <Grid
             item
             xs={12}
-            sm={7}
+            sm={9}
             style={{
               padding: "5px",
-              border: "3px solid blue",
+              // border: "3px solid blue",
               marginRight: "5px",
             }}
           >

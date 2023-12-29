@@ -1,4 +1,4 @@
-import UsuPerfilTop from "../components/UsuPerfilTop";
+import UsuPerfilTop from "../components/PerfilUsuario/UsuPerfilTop";
 
 export default function Home() {
   return (

@@ -9,7 +9,7 @@ import AlignHorizontalRightIcon from "@mui/icons-material/AlignHorizontalRight";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
-import Home from "../pages/Home";
+import Home from "../../pages/Home";
 import { Drawer } from "@mui/material";
 
 import RestaurantesGuardados from "./RestaurantesGuardados";

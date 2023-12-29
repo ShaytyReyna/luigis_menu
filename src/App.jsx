@@ -11,9 +11,10 @@ import Signup_Res from "./components/Signup_Res";
 import Login from "./components/login";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
+import PerfilRes from "./pages/PerfilRestaurante";
 import UsuPerfil from "./pages/PerfilU";
 import SignupU from "./pages/SignUpU";
-import RestaurantesGuardados from "./components/RestaurantesGuardados";
+import RestaurantesGuardados from "./components/PerfilUsuario/RestaurantesGuardados";
 
 const navArrayLinks = [
   {
@@ -58,7 +59,8 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home />}
+            // element={<Home />}
+            element={<PerfilRes />}
           />
           <Route
             path="/Login"

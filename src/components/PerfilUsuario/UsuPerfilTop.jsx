@@ -169,9 +169,17 @@ export default function UsuPerfilTop() {
           <IconButton
             onClick={handleIconClick}
             color="primary"
-            sx={{ fontSize: { xs: "8rem", sm: "12rem" } }}
+            // sx={{ fontSize: { xs: "8rem", sm: "12rem" } }}
           >
-            {isFavorite ? <FavoriteRoundedIcon /> : <FavoriteBorderIcon />}
+            {isFavorite ? (
+              <FavoriteRoundedIcon
+                sx={{ fontSize: { xs: "2rem", sm: "3rem" } }}
+              />
+            ) : (
+              <FavoriteBorderIcon
+                sx={{ fontSize: { xs: "2rem", sm: "3rem" } }}
+              />
+            )}
           </IconButton>
         </Grid>
       </Grid>

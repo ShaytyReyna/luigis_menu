@@ -21,6 +21,7 @@ export default function Preferencias() {
       <Typography
         variant="h3"
         gutterBottom
+        sx={{ marginTop: "15px" }}
       >
         Preferencias
       </Typography>
@@ -40,7 +41,7 @@ export default function Preferencias() {
           id="area-select"
           label="Área habitual"
           defaultValue=""
-          //   en defaultValue hayque meter una variable que se importa desde bd para que vea que area selecciono con anterioridad
+          //en defaultValue hayque meter una variable que se importa desde bd para que vea que area selecciono con anterioridad
         >
           <MenuItem
             value={1}
@@ -88,9 +89,18 @@ export default function Preferencias() {
       </FormControl>
 
       <Button
+        type="submit"
         onClick={handleToggleSelect}
         variant="contained"
         color="primary"
+        sx={{
+          margin: "20px 0px",
+          color: "white",
+          "&:hover": {
+            backgroundColor: "#FF9B50",
+            color: "#E25E3E", // Cambia al color deseado al pasar el mouse
+          },
+        }}
       >
         {isDisabled ? "Cambiar" : "Guardar"}
       </Button>
