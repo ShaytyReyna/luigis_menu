@@ -15,6 +15,7 @@ import PerfilRes from "./pages/PerfilRestaurante";
 import UsuPerfil from "./pages/PerfilU";
 import SignupU from "./pages/SignUpU";
 import RestaurantesGuardados from "./components/PerfilUsuario/RestaurantesGuardados";
+import UsuarioAjeno from "./pages/UsuarioAjeno";
 
 const navArrayLinks = [
   {
@@ -83,6 +84,10 @@ function App() {
           <Route
             path="/RestaurantesGuardados"
             element={<RestaurantesGuardados />}
+          />
+           <Route
+            path="/UsuarioAjeno"
+            element={<UsuarioAjeno />}
           />
         </Routes>
       </Container>

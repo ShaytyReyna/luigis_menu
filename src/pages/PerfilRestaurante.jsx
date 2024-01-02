@@ -8,6 +8,8 @@ import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import ResPerfilTop from "../components/PerfilRes/ResPerfilTop";
 import ImageGallery from "../components/PerfilRes/ImageGallery";
 
+import Comentarios from "../components/PerfilRes/Comentarios";
+
 const BoxStyle = {
   marginTop: "100px",
   position: "absolute",
@@ -118,7 +120,14 @@ export default function PerfilRestaurante(params) {
                 <IconButton>
                   <ForumRoundedIcon sx={IconStyle} />
                 </IconButton>
+                <br />
               </div>
+            </Grid>
+            <Grid item
+              container
+              direction="column"
+              alignItems="center">
+            <Comentarios></Comentarios>
             </Grid>
           </Grid>
           <Grid
