@@ -9,6 +9,9 @@ import ResPerfilTop from "../components/PerfilRes/ResPerfilTop";
 import ImageGallery from "../components/PerfilRes/ImageGallery";
 
 import Comentarios from "../components/PerfilRes/Comentarios";
+import MapContainer from "../components/PerfilRes/Mapa";
+import MapView from "../components/PerfilRes/MapView";
+import Menu from "../components/PerfilRes/Menu";
 
 const BoxStyle = {
   marginTop: "100px",
@@ -35,6 +38,8 @@ const SideOptionsStyle = {
   width: "100%",
 };
 export default function PerfilRestaurante(params) {
+  const address =
+    "Av. Té 950, Granjas México, Iztacalco, 08400 Ciudad de México, CDMX";
   return (
     <Box style={BoxStyle}>
       <ResPerfilTop
@@ -123,11 +128,13 @@ export default function PerfilRestaurante(params) {
                 <br />
               </div>
             </Grid>
-            <Grid item
+            <Grid
+              item
               container
               direction="column"
-              alignItems="center">
-            <Comentarios></Comentarios>
+              alignItems="center"
+            >
+              <Comentarios></Comentarios>
             </Grid>
           </Grid>
           <Grid
@@ -172,6 +179,20 @@ export default function PerfilRestaurante(params) {
                   <AddLocationRoundedIcon sx={IconStyle} />
                 </IconButton>
               </div>
+
+              <div>
+                {/* <MapContainer address={address} /> */}
+                <MapView address={address} />
+              </div>
+              <div>
+                <Typography
+                  variant="body1"
+                  gutterBottom
+                  style={{ backgroundColor: "#FFBB5C" }}
+                >
+                  {address}
+                </Typography>
+              </div>
             </Grid>
             <Grid
               item
@@ -201,35 +222,7 @@ export default function PerfilRestaurante(params) {
                   <RestaurantRoundedIcon sx={IconStyle} />
                 </IconButton>
               </div>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              style={SideOptionsStyle}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  backgroundColor: "#FF9B50",
-                  padding: "5px 0px 0px 0px",
-                  color: "white",
-                  borderRadius: "10px 10px 0px 0px  ",
-                }}
-              >
-                <Typography
-                  variant="h4"
-                  component="div"
-                  sx={{
-                    flex: 1,
-                  }}
-                >
-                  Información
-                </Typography>
-                <IconButton>
-                  <InfoRoundedIcon sx={IconStyle} />
-                </IconButton>
-              </div>
+              <Menu restaurante={restaurante} />
             </Grid>
           </Grid>
         </Grid>
@@ -237,3 +230,26 @@ export default function PerfilRestaurante(params) {
     </Box>
   );
 }
+
+const restaurante = {
+  nombre: "Restaurante XYZ",
+  imagenUrl: "/public/ResXYZ.jpg",
+  descripcion: "Un lugar encantador para disfrutar de deliciosos platillos.",
+  // podemos manejar esto con boleanos y mandar todas las opciones, solo las de true se meustran y el resto no
+  tipoComida: ["italiana", "Japonesa", "Taqueria", "Variado"],
+  menu: [
+    {
+      nombre: "Platillo 1",
+      precio: "$10.99",
+    },
+    {
+      nombre: "Platillo 2",
+      precio: "$12.99",
+    },
+    {
+      nombre: "Platillo 3",
+      precio: "$8.99",
+    },
+    // ... más elementos del menú
+  ],
+};
