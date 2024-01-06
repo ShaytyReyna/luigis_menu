@@ -3,7 +3,6 @@ import React from "react";
 import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
 import AddLocationRoundedIcon from "@mui/icons-material/AddLocationRounded";
 import RestaurantRoundedIcon from "@mui/icons-material/RestaurantRounded";
-import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 
 import ResPerfilTop from "../components/PerfilRes/ResPerfilTop";
 import ImageGallery from "../components/PerfilRes/ImageGallery";

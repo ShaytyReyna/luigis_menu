@@ -52,16 +52,10 @@ export default function NestedList({ onComponentChange }) {
         onComponentChange(<Preferencias />);
         break;
 
-      // Agregar los otros
       default:
-        onComponentChange(null); //si no hay coincidencias
+        onComponentChange(<RestaurantesGuardados />); //si no hay coincidencias
     }
   };
-
-  // const handleItemClick = (option) => {
-  //   setOpen(false);
-  //   handleOptionClick(option);
-  // };
 
   return (
     <div style={divStyle}>

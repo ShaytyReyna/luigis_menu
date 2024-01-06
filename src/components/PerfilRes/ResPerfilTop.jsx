@@ -16,8 +16,6 @@ import StarHalfRoundedIcon from "@mui/icons-material/StarHalfRounded";
 import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
 import React from "react";
 
-
-
 const avatarStyle = {
   margin: "auto",
   width: "20vw",
