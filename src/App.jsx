@@ -60,8 +60,8 @@ function App() {
         <Routes>
           <Route
             path="/"
-            // element={<Home />}
-            element={<PerfilRes />}
+            element={<Home />}
+           //element={<PerfilRes />}
           />
           <Route
             path="/Login"
@@ -88,6 +88,10 @@ function App() {
            <Route
             path="/UsuarioAjeno"
             element={<UsuarioAjeno />}
+          />
+           <Route
+            path="/PerfilRestaurante"
+            element={<PerfilRes />}
           />
         </Routes>
       </Container>
