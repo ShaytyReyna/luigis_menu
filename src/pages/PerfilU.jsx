@@ -15,7 +15,6 @@ const paperStyle = {
   flexGrow: 1,
   padding: "50px auto",
 
-  borderRadius: "10px",
 };
 
 export default function PerfilU() {

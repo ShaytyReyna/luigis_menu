@@ -1,16 +1,16 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import IconButton from '@mui/material/IconButton';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { orange } from '@mui/material/colors';
+import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
+import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
+import { IconButton } from "@mui/material";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import StarHalfRoundedIcon from "@mui/icons-material/StarHalfRounded";
-import { Grid } from '@mui/material';
 
 const fullstarStyle = {
     color: "#FFCD4B",
@@ -69,52 +69,56 @@ const getRatingIcons = (calif) => {
     return icons;
 };
 
-export default function Comentarios_U() {
-    const [isSave, setIsSave] = React.useState(false);
+export default function CardStar() {
+
+    const [isSave, setIsSave] = React.useState(true);
 
     const handleIconClick = () => {
         setIsSave((prev) => !prev);
     };
 
-    //resplazar despues con lo que viene de BD
-    const calif = 7;
+    const calif = 8;
 
     return (
         <div>
-            <Card sx={{ width: 700 }}>
-                <CardHeader
-                    sx={{ textAlign: "left" }}
-                    avatar={
-                        <IconButton sx={{ backgroundColor: 'white' }}
-                            component="a"
-                            href="#"
-                        >
-                            <AccountCircleIcon sx={{ color: orange[600], fontSize: 40 }}></AccountCircleIcon>
-                        </IconButton>
-                    }
-                    action={
-                        <Grid>
-                            {getRatingIcons(calif)}
-                        </Grid>
-                    }
-                    title="Roberto Lechuga"
-                    subheader="Octubre 20,2023"
-                />
+            <Card sx={{ maxWidth: 345, marginRight:3 }}>
                 <CardMedia
-                    component="img"
-                    height="300"
-                    image='../public/Prueba0.jpg'
-                    alt="Restaurante"
+                    sx={{ height: 140 }}
+                    image="../public/Prueba0.jpg"
+                    title="Restaurante"
                 />
                 <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                        This impressive paella is a perfect party dish and a fun meal to cook
-                        together with your guests. Add 1 cup of frozen peas along with the mussels,
-                        if you like.
+                    <Typography gutterBottom variant="h5" component="div">
+                        Nombre Restaurante
                     </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Un lugar encantador para disfrutar de deliciosos platillos.
+                    </Typography>
+                    <br />
+                  {getRatingIcons(calif)}
                 </CardContent>
-
+                <CardActions>
+                    <Button size="small"
+                        component="a"
+                        href="/PerfilRestaurante"
+                        sx={{ padding: 2 }}
+                    >Visitar</Button>
+                    <IconButton
+                        onClick={handleIconClick}
+                        color="primary"
+                    >
+                        {isSave ? (
+                            <BookmarkRoundedIcon
+                                sx={{ fontSize: { xs: "1rem", sm: "2rem" } }}
+                            />
+                        ) : (
+                            <BookmarkBorderRoundedIcon
+                                sx={{ fontSize: { xs: "1rem", sm: "2rem" } }}
+                            />
+                        )}
+                    </IconButton>
+                </CardActions>
             </Card>
-        </div>
+        </div >
     );
 }
