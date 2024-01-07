@@ -1,8 +1,8 @@
 import { Container } from "@mui/material";
 import * as React from "react";
-
 import "./App.css";
 import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
+import morgan from 'morgan';
 
 //componentes
 import Signup from "./components/signup";
@@ -35,6 +35,7 @@ const containerStyle = {
   padding: 0,
   margin: 0,
 };
+
 function App() {
   const [showSignup, setShowSignup] = React.useState(true);
   return (
