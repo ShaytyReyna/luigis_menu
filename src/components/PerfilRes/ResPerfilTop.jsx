@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Grid,
   Typography,
@@ -12,6 +13,8 @@ import {
   DialogActions,
   Button,
   Snackbar,
+  Tooltip,
+  Rating,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import BookmarkRoundedIcon from "@mui/icons-material/BookmarkRounded";
@@ -20,7 +23,6 @@ import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import StarHalfRoundedIcon from "@mui/icons-material/StarHalfRounded";
 import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
-import React, { useState } from "react";
 
 const avatarStyle = {
   margin: "auto",
@@ -102,6 +104,8 @@ export default function ResPerfilTop() {
   const [isSave, setIsSave] = React.useState(false);
   const [isDialogOpen, setIsDialogOpen] = React.useState(false); // Agregado
   const [showSnackbar, setShowSnackbar] = React.useState(false);
+  const [isRated, setIsRated] = React.useState(false);
+  const [nuevaCalif, setNuevaCalif] = React.useState(0);
 
   const handleIconClick = () => {
     if (isSave) {
@@ -113,6 +117,12 @@ export default function ResPerfilTop() {
       setShowSnackbar(true);
     }
   };
+
+  const handleRatingChange = (value) => {
+    setIsRated(true);
+    setNuevaCalif(value);
+  };
+
   const handleSaveConfirmation = (confirm) => {
     setIsDialogOpen(false);
 
@@ -122,9 +132,13 @@ export default function ResPerfilTop() {
       setShowSnackbar(true);
     }
   };
+  const handleSnackbarClose = () => {
+    setShowSnackbar(false);
+  };
 
   //resplazar despues con lo que viene de BD
   const calif = 7;
+  const promedioCalif = isRated ? (calif + nuevaCalif) / 2 : calif;
 
   return (
     <>
@@ -212,7 +226,29 @@ export default function ResPerfilTop() {
                   >
                     Calificacion:
                   </Typography>
-                  {getRatingIcons(calif)}
+                  {/* <Tooltip
+                    title={calif}
+                    placement="right"
+                    arrow
+                  >
+                    {getRatingIcons(calif)}
+                  </Tooltip> */}
+                  {isRated ? (
+                    <Rating
+                      value={nuevaCalif}
+                      onChange={(event, newValue) =>
+                        handleRatingChange(newValue)
+                      }
+                    />
+                  ) : (
+                    <Tooltip
+                      title={calif}
+                      placement="right"
+                      arrow
+                    >
+                      {getRatingIcons(promedioCalif)}
+                    </Tooltip>
+                  )}
                 </Grid>
                 <Grid item>
                   <Typography

@@ -7,8 +7,8 @@ import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
 //componentes
 import Signup from "./components/signup";
 
-import Signup_Res from "./components/Signup_Res";
-import Login from "./components/login";
+import Signup_Res from "./pages/Signup_Res";
+import Login from "./pages/login";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import PerfilRes from "./pages/PerfilRestaurante";
@@ -18,10 +18,6 @@ import RestaurantesGuardados from "./components/PerfilUsuario/RestaurantesGuarda
 import UsuarioAjeno from "./pages/UsuarioAjeno";
 
 const navArrayLinks = [
-  {
-    title: "Home",
-    path: "/",
-  },
   {
     title: "Log in",
     path: "/Login",
@@ -61,7 +57,7 @@ function App() {
           <Route
             path="/"
             element={<Home />}
-           //element={<PerfilRes />}
+            //element={<PerfilRes />}
           />
           <Route
             path="/Login"
@@ -85,11 +81,11 @@ function App() {
             path="/RestaurantesGuardados"
             element={<RestaurantesGuardados />}
           />
-           <Route
+          <Route
             path="/UsuarioAjeno"
             element={<UsuarioAjeno />}
           />
-           <Route
+          <Route
             path="/PerfilRestaurante"
             element={<PerfilRes />}
           />

@@ -14,7 +14,8 @@ import {
   Container,
   Box,
 } from "@mui/material";
-import Login from "../login";
+import { Link } from "react-router-dom";
+import Login from "../../pages/login";
 import { useState } from "react";
 import React from "react";
 import { NavLink } from "react-router-dom";
@@ -118,32 +119,34 @@ export default function Navbar({ navArrayLinks }) {
         {/*  position="static" */}
         <Container maxWidth="x1">
           <Toolbar disableGutters>
-            <IconButton
-              edge="start"
-              color="inherit"
-              size="large"
-              onClick={() => setOpen(true)}
-              sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-            >
-              <img
-                src="/public/LogoSinDestellos.png"
-                alt="Logo"
-                style={{
-                  height: "100%",
-                  width: "auto",
-                  maxHeight: "50px",
-                  maxWidth: "50px",
-                  objectFit: "contain",
-                }}
-              />
-            </IconButton>
+            <Link to="/">
+              <IconButton
+                edge="start"
+                color="inherit"
+                size="large"
+                // onClick={() => setOpen(true)}
+                sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+              >
+                <img
+                  src="/public/LogoSinDestellos.png"
+                  alt="Logo"
+                  style={{
+                    height: "100%",
+                    width: "auto",
+                    maxHeight: "50px",
+                    maxWidth: "50px",
+                    objectFit: "contain",
+                  }}
+                />
+              </IconButton>
+            </Link>
 
             <Typography
               variant="h6"
               noWrap
               component="div"
               edge="start"
-              sx={{
+              style={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
@@ -156,6 +159,7 @@ export default function Navbar({ navArrayLinks }) {
             >
               Luigi's Menu
             </Typography>
+
             <Search
               sx={{
                 flexGrow: 0,

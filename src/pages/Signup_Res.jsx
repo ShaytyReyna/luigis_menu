@@ -175,6 +175,20 @@ function Signup_Res() {
             sx={{ mt: "20px" }}
           />
 
+          <TextField
+            fullWidth
+            label="Direccion del Restaurante"
+            placeholder="Ingrese la direccion de su restaurante"
+            sx={{ mt: "20px" }}
+          />
+
+          <TextField
+            fullWidth
+            label="Descripcion del Restaurante"
+            placeholder="Ingrese la descripcion de su restaurante"
+            sx={{ mt: "20px" }}
+          />
+
           {/* Area  */}
           <Typography
             sx={{

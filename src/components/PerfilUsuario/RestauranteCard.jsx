@@ -77,7 +77,7 @@ const RestauranteCard = (/*{ restaurante }*/) => {
           elevation={5}
           sx={{ margin: "15px auto" }}
         >
-          <Link to="/">
+          <Link to="/PerfilRestaurante">
             <CardMedia
               component="img"
               image={restaurante.imagenUrl}
@@ -114,7 +114,7 @@ const RestauranteCard = (/*{ restaurante }*/) => {
                   margin: "0px",
                 }}
               >
-                <Link to="/">
+                <Link to="/PerfilRestaurante">
                   <Grid
                     item
                     xs
