@@ -1,33 +1,34 @@
 import mongoose from "mongoose"
 
 const usuarioSchema = new mongoose.Schema({
-    nombre_usuario:{
+    username:{
         type: String,
         requiered: true,
         trim: true
     },
     apellido_p:{
         type: String,
-        requiered: true,
         trim: true
     },
     apellido_m:{
         type: String,
-        requiered: true,
         trim: true
     },
-    email_u:{
+    email:{
         type: String,
         requiered: true,
         trim: true,
         unique: true
     },
-    contraseña:{
+    genero:{
         type: String,
         requiered: true,
-        trim: true
     },
     zona:{
+        type: String,
+        requiered: true,
+    },
+    password:{
         type: String,
         requiered: true,
         trim: true
@@ -36,4 +37,4 @@ const usuarioSchema = new mongoose.Schema({
     timestamps: true
 })
 
-export default mongoose.model('Usuario', usuarioSchema)
+export default mongoose.model('User', usuarioSchema)

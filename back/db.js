@@ -1,10 +1,11 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
+import { MONGODB_URI } from "./config.js";
 
 export const connectDB = async () => {
-    try {
-        await mongoose.connect('mongodb+srv://Pruebas:pruebas123@cluster0.giq0axj.mongodb.net/PWEB')
-        console.log(">> Furula")
-    } catch (error) {
-        console.log(error)
-    }
+  try {
+    await mongoose.connect(MONGODB_URI);
+    console.log("MongoDB conectado");
+  } catch (error) {
+    console.error(error);
+  }
 };
